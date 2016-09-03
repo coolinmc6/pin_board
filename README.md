@@ -75,8 +75,26 @@ edited the config/environments/development.rb file:
 # the default was true
 config.assets.debug = false
 ```
-
-
+* While installing Devise, I grabbed the wrong version from the rubygems site.  Remember to grab right version!
+* The Devise steps:
+```ruby
+gem 'devise', '~> 4.2'
+```
+```shell
+bundle install
+rails generate devise:install
+```
+```ruby
+# environments.rb => just add at the bottom
+config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+```
+* root is already set
+* alerts/notices are already set
+```shell
+rails g devise:views
+rails g devise User
+rails db:migrate
+```
 
 
 
