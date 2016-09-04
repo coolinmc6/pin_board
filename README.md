@@ -111,6 +111,7 @@ class AddUserIdToPins < ActiveRecord::Migration[5.0]
 end
 ```
 * What is ":index" at the end of the generate migration command?
+####STOP @ 35:41
 
 
 
