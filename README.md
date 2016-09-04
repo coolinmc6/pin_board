@@ -7,9 +7,10 @@ This is a Pinterest-clone following the tutorial by [Mackenzie Child](https://ma
 
 ####Things to look up later
 * 'resources :pins'
+* What is ":index" at the end of the generate migration command?
 
 
-####
+#### CM Comments
 * There is a pattern evolving in how I build these apps.  Build the model, migrate database, build the controller.  This
 sets the foundation.
 * Add the index action and then make the routes (resources :pins) and root to index
@@ -95,6 +96,21 @@ rails g devise:views
 rails g devise User
 rails db:migrate
 ```
+* After adding Devise, we need to associate pins and users.  Users will have many pins and pins will belong to users.
+But writing the necessary syntax in each model is not enough, we have to create a migration:
+```shell
+rails g migration add_user_id_to_pins user_id:integer:index
+```
+* This is the resulting migration:
+```ruby
+class AddUserIdToPins < ActiveRecord::Migration[5.0]
+  def change
+    add_column :pins, :user_id, :integer
+    add_index :pins, :user_id
+  end
+end
+```
+* What is ":index" at the end of the generate migration command?
 
 
 
