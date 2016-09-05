@@ -2,6 +2,7 @@ class PinsController < ApplicationController
 	# so before either of those 4 actions occur, the find_pin method is run, which, as the name describes, 
 	# finds the pin that you are looking to show/edit/update/destroy
 	before_action :find_pin, only: [:show, :edit, :update, :destroy, :upvote]
+	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
 		@pins = Pin.all.order("created_at DESC")

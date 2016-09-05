@@ -8,6 +8,7 @@ This is a Pinterest-clone following the tutorial by [Mackenzie Child](https://ma
 ####Things to look up later
 * 'resources :pins'
 * What is ":index" at the end of the generate migration command?
+* panels in Boostrap and how to use them
 
 
 #### CM Comments
