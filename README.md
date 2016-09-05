@@ -153,7 +153,17 @@ rails db:migrate
 ```haml
 = image_tag @pin.image.url(:medium)
 ```
-
+* After completing the image uploading functionality, I edited many of the views so that the user could actually
+see the image they uploaded!  Nothing is really groundbreaking but I did want to point out a few things:
+  * Use common sense!  When they are editing a tag, doesn't it make sense that they'd actually want to SEE what 
+  pin they are updating!  Adding that little image isn't difficult so don't get hung up on trying to memorize the
+  exact code that is used...it's all in the docs!
+  * In the index view, doesn't it make sense that a user can click on the image and be taken to that pin?  Again, 
+  use common sense, this isn't too difficult, you are simply using the 'link_to' functionality and putting the image
+  inside that...instead of text, there is an image!
+####50:00
+* Committed recent changes (ability to upload images)
+* I was not able to get the transitions working but I'll take a look later
 
 
 
