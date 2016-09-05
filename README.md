@@ -18,6 +18,9 @@ sets the foundation.
 * make the new and create actions
 * make the form (as a partial)
 * make the show and new views
+* use Bootstrap as a basic styling until you can actually get in there and make it look good
+* after you add a feature, you go back and the view to actually use it...it's a constant cycle of looking at the model, the
+controller, the view, etc.
 
 
 
@@ -111,9 +114,45 @@ class AddUserIdToPins < ActiveRecord::Migration[5.0]
 end
 ```
 * What is ":index" at the end of the generate migration command?
+* Add Bootstrap.  Look at the application.html.haml file to see this:
+```haml
+%nav.navbar.navbar-default
+  .container
+    .navbar-brand= link_to "Pin Board", root_path
 
-####STOP @ 35:41
+    - if user_signed_in?
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to "New Pin", new_pin_path
+        %li= link_to "Account", edit_user_registration_path
+        %li= link_to "Sign Out", destroy_user_session_path, method: :delete
+    - else
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to "Sign Up", new_user_registration_path
+        %li= link_to "Sign In", new_user_session_path
+.container
+  - flash.each do |name, msg|
+    = content_tag :div, msg, class: "alert alert-info"
+  = yield
+```
+* Look at how Bootstrap navbar's work...I need to remember this
+* Notice the "-" that is used to run ruby code using the user_signed_in? method.  Everything appears to be very
+self-explanatory but talk it out so that you understand it
+* We then wrap the flash messages and the yield in a container to provide that nice padding
 
+####~42:20
+* Add paperclip gem
+* Following steps to add necessary info to pin model (pin.rb).
+* Add migration:
+```shell
+rails generate paperclip pin image
+rails db:migrate
+```
+* Add a line in your form where a user can select an image
+* Update the 'pin_params' in the pins controller to actually allow users to upload images
+* The line below, although in haml, is from the docs for the paperclip gem under View Helpers
+```haml
+= image_tag @pin.image.url(:medium)
+```
 
 
 
