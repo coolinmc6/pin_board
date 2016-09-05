@@ -21,8 +21,8 @@ sets the foundation.
 * make the form (as a partial)
 * make the show and new views
 * use Bootstrap as a basic styling until you can actually get in there and make it look good
-* after you add a feature, you go back and the view to actually use it...it's a constant cycle of looking at the model, the
-controller, the view, etc.
+* after you add a feature, you go back to the view to see how you actually use it...it's a constant cycle of looking at 
+the model, the controller, the view, etc.
 
 
 
