@@ -1,7 +1,7 @@
 class PinsController < ApplicationController
 	# so before either of those 4 actions occur, the find_pin method is run, which, as the name describes, 
 	# finds the pin that you are looking to show/edit/update/destroy
-	before_action :find_pin, only: [:show, :edit, :update, :destroy]
+	before_action :find_pin, only: [:show, :edit, :update, :destroy, :upvote]
 
 	def index
 		@pins = Pin.all.order("created_at DESC")
@@ -39,6 +39,11 @@ class PinsController < ApplicationController
 	def destroy
 		@pin.destroy
 		redirect_to root_path
+	end
+
+	def upvote
+		@pin.upvote_by current_user
+		redirect_to :back
 	end
 
 
