@@ -9,6 +9,7 @@ This is a Pinterest-clone following the tutorial by [Mackenzie Child](https://ma
 * 'resources :pins'
 * What is ":index" at the end of the generate migration command?
 * panels in Boostrap and how to use them
+* the member do syntax in routes.rb after adding the like button
 
 
 #### CM Comments
@@ -166,6 +167,19 @@ see the image they uploaded!  Nothing is really groundbreaking but I did want to
 * Committed recent changes (ability to upload images)
 * I was not able to get the transitions working but I'll take a look later
 
+####Last 30 minutes
+* Added the ability to like items and brought in the heart glyphicon.  To do that, we used the acts_as_votable gem.
+One part that I still need to learn is the modifications to the routes.rb file...I don't quite get this yet:
+```ruby
+resources :pins do
+  member do
+    put "like", to: "pins#upvote"
+  end
+end
+```
+* The last 20 minutes or so of the video was touching up the styling...some of which I did, some that I didn't.
+* I was unable to get the masonry working but as I said above, I will have to play with that later.
+* The app is complete
 
 
 
